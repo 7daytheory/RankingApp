@@ -29,7 +29,16 @@ namespace RankingApp.Controllers
             new ItemModel{Id = 18, Title = "Rust in Peace", ImageId=18, Ranking=0,ItemType=2 },
             new ItemModel{Id = 19, Title = "St. Anger", ImageId=19, Ranking=0,ItemType=2 },
             new ItemModel{Id = 20, Title = "The Final Countdown", ImageId=20, Ranking=0,ItemType=2 }
-
         };
+
+        //Decorate get action method with an HTTP GET attribute
+        [HttpGet("{itemType:int}")]
+        
+        //Get action method accepts a type of integer called itemType
+        public ItemModel[] Get(int itemType)
+        {
+            ItemModel[] items = Items.Where(i => i.ItemType == itemType).ToArray();
+            return items;
+        }
     }
 }
