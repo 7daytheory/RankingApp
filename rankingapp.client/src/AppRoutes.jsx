@@ -1,6 +1,6 @@
 import { FetchData } from './FetchData';
 import { Home } from './components/Home';
-import { RankItems } from './components/RankItems';
+import RankItems from './components/RankItems';
 
 const AppRoutes = [
     {
