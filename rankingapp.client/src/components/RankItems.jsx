@@ -6,7 +6,7 @@ const RankItems = () => {
 
     useEffect(() => {
         //fetch collection of movie data from "server"
-        fetch(`item/${dataType}`)
+        fetch(`item/1`)
             .then(results => {
                 return results.json();
             })
