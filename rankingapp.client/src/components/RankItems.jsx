@@ -24,11 +24,6 @@ const RankItems = () => {
           }
         </main>
           )
-          <div>
-
-          </div>
-      </main>
-  );
 };
 
 export default RankItems;
