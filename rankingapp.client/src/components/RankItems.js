@@ -6,11 +6,24 @@ const RankItems = () => {
 
     useEffect(() => {
         //fetch collection of movie data from "server"
+        fetch(`item/${dataType}`)
+            .then(results => {
+                return results.json();
+            })
+            .then(data => {
+                setItems(data);
+            })
     })
 
   return (
-      <main>
-          (items != null)?
+        <main>
+          {
+              (items != null) ? items.map((item) =>
+                  <h3>{item.title}</h3>) :
+                  <div>Loading...</div>
+          }
+        </main>
+          )
           <div>
 
           </div>
