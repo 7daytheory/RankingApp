@@ -45,12 +45,14 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
+
     server: {
         proxy: {
-            '^/weatherforecast': {
+            //Ensures all API calls go through /item so I don't need to use full URLs
+            '^/item': {
                 target,
-                secure: false
-            }
+                secure: false,
+            },
         },
         port: parseInt(env.DEV_SERVER_PORT || '58788'),
         https: {
