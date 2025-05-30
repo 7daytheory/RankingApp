@@ -45,8 +45,10 @@ export default defineConfig({
             '@': fileURLToPath(new URL('./src', import.meta.url))
         }
     },
+
     server: {
         proxy: {
+            //Ensures all API calls go through /item so I don't need to use full URLs
             '^/item': {
                 target,
                 secure: false,
