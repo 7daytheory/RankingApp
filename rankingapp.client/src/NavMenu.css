@@ -1,25 +1,9 @@
-﻿@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-a.navbar-brand {
-    white-space: normal;
-    text-align: center;
-    word-break: break-all;
-}
-
-html {
-    font-size: 14px;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-.box-shadow {
-    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+﻿a.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+    white-space: nowrap;
+    word-break: break-word;
 }
 
 .custom-navbar {
@@ -29,24 +13,34 @@ html {
     margin-bottom: 1rem;
 }
 
-.custom-toggler {
-    margin-right: 0.5rem;
-}
+    .custom-navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0.5rem 1rem;
+    }
 
 .custom-collapse {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+    display: none;
+    flex-direction: column;
+    width: 100%;
 }
 
+    .custom-collapse.show {
+        display: flex;
+    }
+
 .custom-nav {
-    display: flex;
-    justify-content: end;
-    clear: none;
-    flex-grow: 1;
     list-style: none;
     padding-left: 0;
-    margin-bottom: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .custom-link {
@@ -54,8 +48,41 @@ html {
     text-decoration: none;
     padding: 0.5rem 1rem;
     display: block;
+    text-align: right;
 }
 
     .custom-link:hover {
         text-decoration: underline;
     }
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+
+@media (min-width: 768px) {
+    .custom-collapse {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: auto;
+    }
+
+    .custom-nav {
+        flex-direction: row;
+        width: auto;
+    }
+
+    .custom-link {
+        text-align: left;
+    }
+
+    .custom-toggler {
+        display: none;
+    }
+}
