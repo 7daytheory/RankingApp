@@ -1,4 +1,8 @@
-﻿﻿a.navbar-brand {
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a.navbar-brand {
     white-space: normal;
     text-align: center;
     word-break: break-all;
@@ -17,3 +21,41 @@ html {
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+.custom-navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1rem;
+}
+
+.custom-toggler {
+    margin-right: 0.5rem;
+}
+
+.custom-collapse {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.custom-nav {
+    display: flex;
+    justify-content: end;
+    clear: none;
+    flex-grow: 1;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.custom-link {
+    color: #212529;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+    .custom-link:hover {
+        text-decoration: underline;
+    }
