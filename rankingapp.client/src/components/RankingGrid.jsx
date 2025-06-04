@@ -6,9 +6,9 @@ const RankingGrid = ({ items, imgArr }) => {
     const cellCollectionBottom = [];
     const cellCollectionWorst = [];
 
-    function pushCellMarkerToArr(arr, rankNum, rowLabel) {
+    function pushCellMarkerToArr(cellCollection, rankNum, rowLabel) {
         if (rankNum > 0) {
-            var item = items.find(o => o.rank === rankNum);)
+            var item = items.find(o => o.rank === rankNum);
             cellCollection.push(<div id={`rank-${rankNum}`} className="rank-cell"></div>)
         }
         else {
@@ -23,9 +23,9 @@ const RankingGrid = ({ items, imgArr }) => {
         var rankNum = 0;
         var currCollection = [];
         var label = "";
-        const NumCells = 5;
+        const numCells = 5;
 
-        for (var a = 1; a<= numCells; a++) { 
+        for (var a = 1; a<= numCells; a++) {
                 rankNum = (a === 1) ? 0 : (numCells * (rowNum - 1)) + a - rowNum;
                 
                 if(rowNum === 1) {
@@ -44,8 +44,7 @@ const RankingGrid = ({ items, imgArr }) => {
                 }
 
                 pushCellMarkerToArr(currCollection, rankNum, label);
-                ))
-        })
+        }
     }
 
     function createCellsForRows() {
@@ -56,10 +55,10 @@ const RankingGrid = ({ items, imgArr }) => {
     }
 
     function createRowsForGrid() {
-        rankingGrid.push(<div className="rank-row top-tier">{cellCollectionTop}</div>);)
-        rankingGrid.push(<div className="rank-row middle-tier">{cellCollectionMiddle}</div>);)
-        rankingGrid.push(<div className="rank-row bottom-tier">{cellCollectionBottom}</div>);)
-        rankingGrid.push(<div className="rank-row worst-tier">{cellCollectionWorst}</div>);)
+        rankingGrid.push(<div className="rank-row top-tier">{cellCollectionTop}</div>)
+        rankingGrid.push(<div className="rank-row middle-tier">{cellCollectionMiddle}</div>)
+        rankingGrid.push(<div className="rank-row bottom-tier">{cellCollectionBottom}</div>)
+        rankingGrid.push(<div className="rank-row worst-tier">{cellCollectionWorst}</div>)
 
         return rankingGrid;
     }
@@ -75,7 +74,6 @@ const RankingGrid = ({ items, imgArr }) => {
         </div>
     )
 
-
-})
+}
 
 export default RankingGrid;
