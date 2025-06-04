@@ -27,9 +27,10 @@ const RankItems = () => {
 
         // Prevents users from dropping an images onto another image
         if (targetElm.childNodes.length === 0) {
-            let data = parseInt(ev.dataTransfer.getdata("text").substring(5));
+            let data = parseInt(ev.dataTransfer.getData("text").substring(5));
             const transformedCollection = items.map((item) => (item.id === parseInt(data)) ?
                 { ...item, ranking: parseInt(targetElm.id.substring(5)) } : { ...item, ranking: item.ranking })
+            console.log("DROP target:", targetElm);
             setItems(transformedCollection);
         }
     }
@@ -38,7 +39,7 @@ const RankItems = () => {
         fetch(`item/${dataType}`)
             .then(results => results.json())
             .then(data => setItems(data));
-    }, []);
+    }, [dataType]);
 
 
   return (
@@ -48,7 +49,10 @@ const RankItems = () => {
           {
                   (items.length > 0) ? items.map((item) =>
                      <div className="unranked-cell">
-                          <img id={`item-${item.id}`} src={MovieImageArr.find(o => o.id === item.imageId)?.image} />
+                          <img id={`item-${item.id}`} src={MovieImageArr.find(o => o.id === item.imageId)?.image}
+                              draggable="true"
+                              onDragStart={drag}
+                          />
                      </div>
                      ):
                   <div>Loading...</div>
