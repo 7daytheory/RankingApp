@@ -25,9 +25,7 @@ const RankingGrid = ({ items, imgArr }) => {
         var label = "";
         const numCells = 5;
 
-        for (var a = 1; a<= numCells; a++) {
-                rankNum = (a === 1) ? 0 : (numCells * (rowNum - 1)) + a - rowNum;
-                
+        for (let a = 1; a<= numCells; a++) {
                 if(rowNum === 1) {
                     currCollection = cellCollectionTop;
                     label = "Top Tier";
@@ -43,7 +41,10 @@ const RankingGrid = ({ items, imgArr }) => {
                     label = "Worst Tier";
                 }
 
-                pushCellMarkerToArr(currCollection, rankNum, label);
+                for (let a = 1; a <= numCells; a++) {
+                    rankNum = (a === 1) ? 0 : (numCells * (rowNum - 1)) + a - rowNum;
+                    pushCellMarkerToArr(currCollection, rankNum, label);
+                }
         }
     }
 
@@ -55,10 +56,24 @@ const RankingGrid = ({ items, imgArr }) => {
     }
 
     function createRowsForGrid() {
-        rankingGrid.push(<div className="rank-row top-tier">{cellCollectionTop}</div>)
-        rankingGrid.push(<div className="rank-row middle-tier">{cellCollectionMiddle}</div>)
-        rankingGrid.push(<div className="rank-row bottom-tier">{cellCollectionBottom}</div>)
-        rankingGrid.push(<div className="rank-row worst-tier">{cellCollectionWorst}</div>)
+        // You can just do this but I prefer the map for React consistency
+
+        // rankingGrid.push(<div className="rank-row top-tier">{cellCollectionTop}</div>)
+        // rankingGrid.push(<div className="rank-row middle-tier">{cellCollectionMiddle}</div>)
+        // rankingGrid.push(<div className="rank-row bottom-tier">{cellCollectionBottom}</div>)
+        // rankingGrid.push(<div className="rank-row worst-tier">{cellCollectionWorst}</div>)
+
+        const tierData = [
+            {className: "top-tier", cells: "Top Tier"},
+            {className: "middle-tier", cells: "Middle Tier"},
+            {className: "bottom-tier", cells: "Bottom Tier"},
+            {className: "worst-tier", cells: "Worst Tier" }
+            
+        return tierData.map((tier, index) => (
+            <div key={index} className={`rank-row ${tier.className}`}>
+                {tier.cells}
+            </div>
+        ])
 
         return rankingGrid;
     }
