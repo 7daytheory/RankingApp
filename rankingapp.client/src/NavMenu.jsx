@@ -25,22 +25,24 @@ export class NavMenu extends Component {
         return (
             <header>
                 <Navbar className="custom-navbar" container light>
-                    <NavbarBrand tag={Link} to="/">RankingApp</NavbarBrand>
+                    <div className="container">
+                        <NavbarBrand tag={Link} to="/">Ranking Movies</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNavbar} className="custom-toggler" />
-                            <Collapse className="custom-collapse" isOpen={!this.state.collapsed} navbar>
-                                <ul className="custom-nav">
-                                    <NavItem>
-                                        <NavLink tag={Link} className="custom-link" to="/">Home</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} className="custom-link" to="/fetch-data">Fetch data</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} className="custom-link" to="/rank-items">Rank Items</NavLink>
-                                    </NavItem>
-                                </ul>
-                            </Collapse>
-                    </Navbar>
+                        <Collapse className={`custom-collapse ${this.state.collapsed ? '' : 'show'}`} navbar>
+                            <ul className="custom-nav">
+                                <NavItem>
+                                    <NavLink tag={Link} className="custom-link" to="/">Home</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="custom-link" to="/fetch-data">Fetch data</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="custom-link" to="/rank-items">Rank Items</NavLink>
+                                </NavItem>
+                            </ul>
+                        </Collapse>
+                    </div>
+                </Navbar>
             </header>
         );
     }
