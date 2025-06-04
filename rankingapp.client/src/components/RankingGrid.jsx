@@ -6,6 +6,19 @@ const RankingGrid = ({ items, imgArr }) => {
     const cellCollectionBottom = [];
     const cellCollectionWorst = [];
 
+    function pushCellMarkerToArr(arr, rankNum, rowLabel) {
+        if (rankNum > 0) {
+            var item = items.find(o => o.rank === rankNum);)
+            cellCollection.push(<div id={`rank-${rankNum}`} className="rank-cell"></div>)
+        }
+        else {
+            cellCollection.push(<div className="row-label">
+                <h4>{rowLabel}</h4>
+            </div>
+            );
+        }
+    }
+
     function createCellsForRow(rowNum) {
         var rankNum = 0;
         var currCollection = [];
