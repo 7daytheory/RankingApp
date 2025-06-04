@@ -56,8 +56,8 @@ const RankingGrid = ({ items, imgArr }) => {
     }
 
     function createRowsForGrid() {
-        // You can just do this but I prefer the map for React consistency
 
+        // You can use this also but I wanted to use map for cleaner code with React
         // rankingGrid.push(<div className="rank-row top-tier">{cellCollectionTop}</div>)
         // rankingGrid.push(<div className="rank-row middle-tier">{cellCollectionMiddle}</div>)
         // rankingGrid.push(<div className="rank-row bottom-tier">{cellCollectionBottom}</div>)
@@ -67,13 +67,13 @@ const RankingGrid = ({ items, imgArr }) => {
             {className: "top-tier", cells: "Top Tier"},
             {className: "middle-tier", cells: "Middle Tier"},
             {className: "bottom-tier", cells: "Bottom Tier"},
-            {className: "worst-tier", cells: "Worst Tier" }
-            
+            {className: "worst-tier", cells: "Worst Tier" },
+        ];
         return tierData.map((tier, index) => (
             <div key={index} className={`rank-row ${tier.className}`}>
                 {tier.cells}
             </div>
-        ])
+        ))
 
         return rankingGrid;
     }
