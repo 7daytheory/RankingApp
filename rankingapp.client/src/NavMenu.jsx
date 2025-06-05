@@ -34,10 +34,7 @@ export class NavMenu extends Component {
                                     <NavLink tag={Link} className="custom-link" to="/">Home</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="custom-link" to="/fetch-data">Fetch data</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink tag={Link} className="custom-link" to="/rank-items">Rank Items</NavLink>
+                                    <NavLink tag={Link} className="custom-link" to="/rank-items">Rank Movies</NavLink>
                                 </NavItem>
                             </ul>
                         </Collapse>
